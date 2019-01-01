@@ -80,7 +80,7 @@ def get_inp_factorial():
     print("Please, type n for factorial: ")
     try:
         n = int(input())
-        if n > 0:
+        if n >= 0:
             return n
         else:
             return get_inp_factorial()
