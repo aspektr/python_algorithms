@@ -177,6 +177,49 @@ def print_pow():
     print(a, "^", n, " = ", pow(a, n), sep='')
 
 
+def towers(n: int, from_pile=1, to_pile=2):
+    """
+        Print orders for replace
+    :param n: int number of disks
+    :param from_pile: int
+    :param to_pile: int
+    :return: None
+    """
+    if n == 1:
+        print("Remove 1 disk from {} pile to {} pile"
+              .format(from_pile, to_pile))
+    else:
+        tmp = 6 - from_pile - to_pile
+        towers(n-1, from_pile, tmp)
+        print("Remove {} disk from {} pile to {} pile"
+              .format(n, from_pile, to_pile))
+        towers(n-1, tmp, to_pile)
+
+
+def get_inp_towers():
+    """
+        Recursively asks user to make choice,
+    while input is wrong
+    :return: int user input
+    """
+    print("Please, type quantity of towers: ")
+    try:
+        n = int(input())
+        return n if n >= 0 else get_inp_towers()
+    except:
+        print("Number must be integer and not negative")
+        return get_inp_towers()
+
+
+def print_towers():
+    """
+        Run towers function
+    :return: None
+    """
+    n = get_inp_towers()
+    towers(n)
+
+
 def show_main_screen():
     """
         Recursively show main menu, while exit is not chosen
@@ -191,6 +234,9 @@ def show_main_screen():
         show_main_screen()
     if option == 3:
         print_pow()
+        show_main_screen()
+    if option == 4:
+        print_towers()
         show_main_screen()
     if option == 5:
         raise SystemExit(0)
@@ -238,4 +284,3 @@ if __name__ == '__main__':
              )
 
     show_main_screen()
-
