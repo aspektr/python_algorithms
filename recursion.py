@@ -130,6 +130,16 @@ def print_gcd():
     print(a, " gcd ", b, " = ", gcd(a,b), sep='')
 
 
+def pow(a: float, n: int):
+    """
+        Raises a number A to a power N (fast method)
+    :param a: float number
+    :param n: int power
+    :return: float A^N
+    """
+    pass
+
+
 def show_main_screen():
     """
         Recursively show main menu, while exit is not chosen
@@ -166,9 +176,19 @@ def test_gcd():
     print("OK") if gcd(a, b) == 2 else print("Failed")
 
 
+def test_pow():
+    """
+        Test pow function
+    :return: None
+    """
+    print("Test pow:", end='')
+    print("OK") if pow(2, 10) == 1024 else print("Failed")
+
+
 if __name__ == '__main__':
     test_factorial()
     test_gcd()
+    test_pow()
 
     algos = ('Factorial',
              'Euclidean algorithm',
