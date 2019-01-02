@@ -137,7 +137,13 @@ def pow(a: float, n: int):
     :param n: int power
     :return: float A^N
     """
-    pass
+    if n == 0:
+        return 1
+    elif n % 2 == 0:  # power n - even
+        return pow(a**2, n//2)
+    else:  # power n - odd
+        return pow(a, n-1)*a
+
 
 
 def show_main_screen():
