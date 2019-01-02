@@ -145,6 +145,35 @@ def pow(a: float, n: int):
         return pow(a, n-1)*a
 
 
+def get_inp_pow(kind='base'):
+    """
+        Recursively asks user to make choice,
+    while input is wrong
+
+    :param kind: str base or power
+    :return: int user input
+    """
+    print("Please, type", kind, ": ", end='')
+    cast = int if kind == 'power' else float
+    try:
+        n = cast(input())
+        if kind == 'power':
+            return n if n >= 0 else get_inp_pow(kind)
+    except:
+        print("Power must be integer and not negative")
+        print("Base must be float")
+        return get_inp_pow(kind)
+
+
+def print_pow():
+    """
+        Print result of calculation gcd
+    :return: None
+    """
+    a = get_inp_pow()
+    n = get_inp_pow('power')
+    print(a, "^", n, " = ", pow(a, n), sep='')
+
 
 def show_main_screen():
     """
@@ -157,6 +186,9 @@ def show_main_screen():
         show_main_screen()
     if option == 2:
         print_gcd()
+        show_main_screen()
+    if option == 3:
+        print_pow()
         show_main_screen()
     if option == 5:
         raise SystemExit(0)
