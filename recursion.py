@@ -98,14 +98,14 @@ def print_factorial():
     print(n, "! = ", factorial(n), sep='')
 
 
-def gcd(a:int, b:int):
+def gcd(a: int, b: int):
     """
         Find grand common divisor for couple numbers a and b
     :param a: int
     :param b: int
     :return: int grand common divisor
     """
-    pass
+    return b if a % b == 0 else gcd(b, a//b)
 
 
 def main_screen_show():
@@ -138,7 +138,7 @@ def test_gcd():
     a = 323
     b = 19
     print("Test Euclidean algorithm:", end='')
-    print("OK") if gcd(a, b) == 17 else print("Failed")
+    print("OK") if gcd(a, b) == 19 else print("Failed")
 
 
 if __name__ == '__main__':
