@@ -66,9 +66,7 @@ def factorial(n: int):
     :param n: int
     :return: int factorial from n
     """
-    if n == 0:
-        return 1
-    return factorial(n-1)*n
+    return 1 if n == 0 else factorial(n-1)*n
 
 
 def get_inp_factorial():
