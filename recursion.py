@@ -130,7 +130,7 @@ def print_gcd():
     print(a, " gcd ", b, " = ", gcd(a,b), sep='')
 
 
-def main_screen_show():
+def show_main_screen():
     """
         Recursively show main menu, while exit is not chosen
     :return: None
@@ -138,10 +138,10 @@ def main_screen_show():
     option = algo_selection(algos)
     if option == 1:
         print_factorial()
-        main_screen_show()
+        show_main_screen()
     if option == 2:
         print_gcd()
-        main_screen_show()
+        show_main_screen()
     if option == 5:
         raise SystemExit(0)
 
@@ -177,5 +177,5 @@ if __name__ == '__main__':
              'Exit'
              )
 
-    main_screen_show()
+    show_main_screen()
 
