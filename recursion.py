@@ -78,10 +78,7 @@ def get_inp_factorial():
     print("Please, type n for factorial: ")
     try:
         n = int(input())
-        if n >= 0:
-            return n
-        else:
-            return get_inp_factorial()
+        return n if n >= 0 else get_inp_factorial()
     except:
         print("Number must be integer and not negative")
         return get_inp_factorial()
