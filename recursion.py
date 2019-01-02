@@ -100,7 +100,34 @@ def gcd(a: int, b: int):
     :param b: int
     :return: int grand common divisor
     """
-    return b if a % b == 0 else gcd(b, a//b)
+    return b if a % b == 0 else gcd(b, a % b)
+
+
+def get_inp_gcd(cnt='first'):
+    """
+        Recursively asks user to make choice,
+    while input is wrong
+
+    :param cnt: str first or second call
+    :return: int user input
+    """
+    print("Please, type", cnt, "number for Euclidean algorithm: ", end='')
+    try:
+        n = int(input())
+        return n if n > 0 else get_inp_gcd(cnt)
+    except:
+        print("Number must be integer and positive")
+        return get_inp_gcd(cnt)
+
+
+def print_gcd():
+    """
+        Print result of calculation gcd
+    :return: None
+    """
+    a = get_inp_gcd()
+    b = get_inp_gcd('second')
+    print(a, " gcd ", b, " = ", gcd(a,b), sep='')
 
 
 def main_screen_show():
@@ -111,6 +138,9 @@ def main_screen_show():
     option = algo_selection(algos)
     if option == 1:
         print_factorial()
+        main_screen_show()
+    if option == 2:
+        print_gcd()
         main_screen_show()
     if option == 5:
         raise SystemExit(0)
