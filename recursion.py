@@ -89,15 +89,6 @@ def get_inp_factorial():
         return get_inp_factorial()
 
 
-def test_factorial():
-    """
-        Test factorial
-    :return: None
-    """
-    print("Test factorial:")
-    print("OK") if factorial(5) == 120 else print("Failed")
-
-
 def print_factorial():
     """
         Print result of calculation factorial
@@ -105,6 +96,16 @@ def print_factorial():
     """
     n = get_inp_factorial()
     print(n, "! = ", factorial(n), sep='')
+
+
+def gcd(a:int, b:int):
+    """
+        Find grand common divisor for couple numbers a and b
+    :param a: int
+    :param b: int
+    :return: int grand common divisor
+    """
+    pass
 
 
 def main_screen_show():
@@ -120,12 +121,33 @@ def main_screen_show():
         raise SystemExit(0)
 
 
+def test_factorial():
+    """
+        Test factorial
+    :return: None
+    """
+    print("Test factorial:", end='')
+    print("OK") if factorial(5) == 120 else print("Failed")
+
+
+def test_gcd():
+    """
+        Test Euclidean algorithm
+    :return: None
+    """
+    a = 323
+    b = 19
+    print("Test Euclidean algorithm:", end='')
+    print("OK") if gcd(a, b) == 17 else print("Failed")
+
+
 if __name__ == '__main__':
     test_factorial()
+    test_gcd()
 
     algos = ('Factorial',
              'Euclidean algorithm',
-             'Exponentiation by squaring',
+             'Exponentiation by squaring (fast exponentiation)',
              'Tower of Hanoi',
              'Exit'
              )
