@@ -159,6 +159,8 @@ def get_inp_pow(kind='base'):
         n = cast(input())
         if kind == 'power':
             return n if n >= 0 else get_inp_pow(kind)
+        else:
+            return n
     except:
         print("Power must be integer and not negative")
         print("Base must be float")
