@@ -135,10 +135,10 @@ def test_gcd():
         Test Euclidean algorithm
     :return: None
     """
-    a = 323
-    b = 19
+    a = 10
+    b = 6
     print("Test Euclidean algorithm:", end='')
-    print("OK") if gcd(a, b) == 19 else print("Failed")
+    print("OK") if gcd(a, b) == 2 else print("Failed")
 
 
 if __name__ == '__main__':
