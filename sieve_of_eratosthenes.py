@@ -54,7 +54,7 @@ def count_digits(a: list):
     # get list of frequencies
     frequencies = [0]*10
     for digit in digits:
-        for i in range(0,10):
+        for i in range(10):
             if digit == i:
                 frequencies[i] += 1
                 break
