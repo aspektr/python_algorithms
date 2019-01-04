@@ -221,6 +221,47 @@ def print_towers():
     towers(n)
 
 
+def get_inp_permutations():
+    """
+        Recursively asks user to make choice,
+    while input is wrong
+    :return: int user input
+    """
+    print("Please, type number of elements: ")
+    try:
+        n = int(input())
+        return n if n >= 0 else get_inp_permutations()
+    except:
+        print("Number must be integer and not negative")
+        return get_inp_permutations()
+
+
+def permutations(n: int, m: int = None, prefix: str = ''):
+    """
+        Print all possible permutations for N elements, be
+    careful Number of permutations = n! (factorial)
+    :param n: int number of elements for permutations
+    :param m: int recursion level
+    :param prefix: str output permutation
+    :return: None
+    """
+    m = m or n+1
+    if m == 1:
+        print(prefix, end=' ')
+    for i in range(1, n+1):
+        if str(i) not in prefix:
+            permutations(n, m - 1, prefix + str(i))
+
+
+def print_permutations():
+    """
+        Run permutations function
+    :return: None
+    """
+    n = get_inp_permutations()
+    permutations(n)
+
+
 def show_main_screen():
     """
         Recursively show main menu, while exit is not chosen
@@ -240,6 +281,9 @@ def show_main_screen():
         print_towers()
         show_main_screen()
     if option == 5:
+        print_permutations()
+        show_main_screen()
+    if option == 6:
         raise SystemExit(0)
 
 
@@ -281,6 +325,7 @@ if __name__ == '__main__':
              'Euclidean algorithm',
              'Exponentiation by squaring (fast exponentiation)',
              'Tower of Hanoi',
+             'Permutations',
              'Exit'
              )
 
