@@ -3,6 +3,7 @@ def print_header():
         Print main menu header
     :return: None
     """
+    print()
     print("*" * 45)
     print("Please, select algorithm:")
     print("*" * 45)
