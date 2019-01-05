@@ -70,8 +70,8 @@ def partition(a: list, hi: int, lo: int):
     """
         Partition takes the value PIVOT of a middle element of the array A,
     and rearranges the values of the elements of the array
-    in such a way that all elements < PIVOT on the left of the PIVOT, and
-    all elements > PIVOT on the right of the PIVOT
+    in such a way that all elements < PIVOT move on the left of the PIVOT, and
+    all elements > PIVOT move on the right of the PIVOT
     :param a: list A-array
     :param hi: int right marker
     :param lo: int left marker
