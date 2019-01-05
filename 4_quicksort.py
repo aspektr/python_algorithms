@@ -89,17 +89,18 @@ def partition(a: list, hi: int, lo: int):
     return hi, lo
 
 
-def inp(stop: list, a=[], user_input=None):
+def inp(stop: list, a=[], user_input=None, algo=qsort):
     """
         Handle user input
     :param stop: list stop-commands (for instance, stop)
     :param a: list of elements for sorting
     :param user_input:str or float
+    :param algo: function for sorting
     :return: None
     """
     if user_input in stop:
         print("Starting sort...")
-        qsort(a)
+        algo(a)
         print("Done! Sort list is: ", a)
         print("Let's try again!")
         inp(stop, a=[])
