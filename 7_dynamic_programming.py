@@ -222,6 +222,53 @@ def lcs(a, b):
     return f[-1][-1]
 
 
+def test_lis():
+    """
+        Test longest increasing subsequence
+    :return: None
+    """
+    print("Test lis #1: ", end='')
+    print("OK") if lis([1, 9, 2, 3, 8, 7]) == 4 else print("Failed")
+    print("Test lis #2: ", end='')
+    print("OK") if lis([1, 1, 1, 1, 1, 1]) == 1 else print("Failed")
+    print("Test lis #3: ", end='')
+    print("OK") if lis([5, 4, 3, 2, 1]) == 1 else print("Failed")
+    print("Test lis #4: ", end='')
+    print("OK") if lis([4, 3, 2, 5]) == 2 else print("Failed")
+    print("Test lis #5: ", end='')
+    print("OK") if lis([0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]) == 6 else print("Failed")
+
+
+def lis(a: list):
+    """
+        Longest increasing subsequence (length)
+
+    Let's examine part of subsequence A[0:i] :=> a[0:k],
+    such that mandatorily ended k-th element a[k-1].
+    Then F(k) will be examined as GIS for this subsequence.
+    Thus each part of subsequence from 0 up to k has its own F(k)
+
+         a: => [a1, a2, a3,...a(i-1), a[i]]
+    part a: => [a1, a2,...a(k)]
+
+            |i>k
+    F(i) =  |a[i] > a[k]
+            |max(F(k)) + 1
+            |1, F(0)
+    :param a: list
+    :return: int length of lis
+    """
+    f = [0]*(len(a))
+    f[0] = 1
+    for i in range(1, len(a)):
+        maximum = 0
+        for k in range(i):
+            if a[i] > a[k] and f[k] > maximum:
+                maximum = f[k]
+        f[i] = maximum + 1
+    return f[-1]
+
+
 if __name__ == '__main__':
     test_grasshopper_count_routes()
     test_grasshopper_find_min()
@@ -229,3 +276,4 @@ if __name__ == '__main__':
     test_chess_rook_find_min()
     test_chess_rook_count_routes()
     test_lcs()
+    test_lis()
