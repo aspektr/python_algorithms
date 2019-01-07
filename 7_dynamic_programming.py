@@ -197,6 +197,7 @@ def test_lcs():
 
 def lcs(a, b):
     """
+        Largest common subsequence (length)
         Let's define function of length for lcs:
          a  :=> [a(1), a(2), a(3) ...a(n-1), a(n)]
          b  :=> [b(1), b(2), b(3) ...b(m-1), b(m)]
