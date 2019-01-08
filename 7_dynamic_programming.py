@@ -258,7 +258,7 @@ def lis(a: list):
 
     Let's examine part of subsequence A[0:i] :=> a[0:k],
     such that mandatorily ended k-th element a[k-1].
-    Then F(k) will be examined as GIS for this subsequence.
+    Then F(k) will be examined as LIS for this subsequence.
     Thus each part of subsequence from 0 up to k has its own F(k)
 
          a: => [a1, a2, a3,...a(i-1), a[i]]
