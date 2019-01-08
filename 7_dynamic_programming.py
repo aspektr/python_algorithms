@@ -282,6 +282,40 @@ def lis(a: list):
     return f[-1]
 
 
+def test_binary_sequence():
+    """
+        Test binary_sequence
+    :return: None
+    """
+    print("Test binary_sequence: ", end='')
+    print("OK") if binary_sequence(4) == 5 else print("Failed")
+
+
+def binary_sequence(n: int):
+    """
+    How many ways are exist to make up sequence consisting of 1 and 0,
+    having length = n, so that 1 or 0 does not repeat more than 2 times?
+    :param n: int length
+    :return: int number of ways
+
+    a[i][k] - number of ways to make up sequence, having length = n,
+              and ended k
+
+             |
+    F(i,k) = | F(i-1,1-k) + F(i-2, 1-k) + 1
+             | k = [0,1]
+    """
+    f = [[0]*2 for _ in range(n+1)]
+    f[1][0] = 1
+    f[1][1] = 1
+    f[2][0] = 2
+    f[2][1] = 2
+    for i in range(3, n+1):
+        for k in range(2):
+            f[i][k] = f[i-1][1-k] + f[i-2][1-k]
+    return f[-1][-1]
+
+
 if __name__ == '__main__':
     test_grasshopper_count_routes()
     test_grasshopper_find_min()
@@ -290,3 +324,4 @@ if __name__ == '__main__':
     test_chess_rook_count_routes()
     test_lcs()
     test_lis()
+    test_binary_sequence()
