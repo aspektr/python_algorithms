@@ -1,3 +1,16 @@
+"""
+===============================================================
+|          COMMON RULES FOR DYNAMIC PROGRAMMING               |
+==============================================================|
+| * What values are we going to calculate?                    |
+| * How to recalculate the values? What's a recurrence ratio? |
+| * What initial values?                                      |
+| * In which order to calculate the values?                   |
+| * Where to find an answer?                                  |
+===============================================================
+"""
+
+
 def test_grasshopper_count_routes():
     """
         Test grasshopper_count_routes
